@@ -1,0 +1,16 @@
+version: "3.8"
+
+cart_service:
+    build:
+      context: ./cart_service
+      dockerfile: "Dockerfile.api"
+    ports:
+      - "8081:8081"
+    links:
+      - "auth_grpc_server"
+      - "product_grpc"
+    networks:
+      - cloud_dev_internal_net
+networks:
+  cloud_dev_internal_net:
+    driver: bridge

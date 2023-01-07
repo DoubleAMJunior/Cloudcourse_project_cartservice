@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package="test.grpc/product_service";
+package product;
+service ProductService{
+    rpc GetProduct(PID) returns(PInfo);
+}
+
+message PID {
+  int32 id = 1;
+}
+
+message PInfo {
+  string title = 1;
+  int32 count = 2;
+}
